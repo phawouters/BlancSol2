@@ -2,30 +2,8 @@
 {
     font-family: "ISOCP", "ISO3098", monospace;
     background-color: #f0f0f0;
-    color: #333;
-    text-align: center;
+    color: #333;   
     margin-top: 50px;
-}
-
-#greeting
-{
-    color: #4682b4;
-}
-
-#clickMe
-{
-    padding: 10px 20px;
-    background-color: #4682b4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#myCanvas
-{
-    display: block;
-    margin: 0 auto;
 }
 
 svg
