@@ -4,6 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var greeting = document.getElementById("greeting");
 
     button.addEventListener("click", function () {
-        greeting.textContent = "You clicked the dummy button!";
+        greeting.textContent = "You clicked the button!";
     });
 });
