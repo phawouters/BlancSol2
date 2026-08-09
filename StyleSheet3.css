@@ -17,3 +17,15 @@ svg
     background-color: #f0f0f0;
     border: 1px solid black;
 }
+
+.svg-wrapper
+{
+    position: relative;
+}
+
+#w3review
+{
+    position: absolute;
+    left: 660px;
+    top: 110px;
+}
