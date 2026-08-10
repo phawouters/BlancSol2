@@ -23,6 +23,14 @@ svg
     position: relative;
 }
 
+#percentage
+{
+    position: absolute;
+    left: 360px;
+    top: 170px;
+    transform: translateX(-50%);
+}
+
 #w3review
 {
     position: absolute;
