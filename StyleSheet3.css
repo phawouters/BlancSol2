@@ -4,6 +4,38 @@
     color: #333;     
 }
 
+.navbar
+{
+    background-color: #0066CC;
+}
+
+.navbar ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li
+{
+    margin: 0;
+}
+
+.navbar a
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover
+{
+    background-color: #004c99;
+}
+
 .page-content
 {
     width: 1000px;
