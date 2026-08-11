@@ -54,7 +54,13 @@
 {
     border: 1px solid #ccc;
     padding: 8px 14px;
-    text-align: center;
+    text-align: right;
+}
+
+.buizen-table th:first-child,
+.buizen-table td:first-child
+{
+    text-align: left;
 }
 
 .buizen-table th
