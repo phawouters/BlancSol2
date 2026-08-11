@@ -90,9 +90,8 @@ svg
 #percentage
 {
     position: absolute;
-    left: 360px;
-    top: 170px;
-    transform: translateX(-50%);
+    left: 330px;
+    top: 215px;    
 }
 
 #w3review
