@@ -42,6 +42,32 @@
     margin: 0 auto;
 }
 
+.buizen-table
+{
+    margin: 20px auto 0;
+    border-collapse: collapse;
+    width: 500px;
+}
+
+.buizen-table th,
+.buizen-table td
+{
+    border: 1px solid #ccc;
+    padding: 8px 14px;
+    text-align: center;
+}
+
+.buizen-table th
+{
+    background-color: #0066CC;
+    color: white;
+}
+
+.buizen-table tbody tr:nth-child(even)
+{
+    background-color: #f0f0f0;
+}
+
 svg 
 {
     display: block;
