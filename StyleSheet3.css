@@ -49,6 +49,18 @@
     width: 500px;
 }
 
+.table-wrapper
+{
+    position: relative;
+}
+
+#buizen
+{
+    position: absolute;
+    left: 280px;
+    top: 420px;
+}
+
 .buizen-table th,
 .buizen-table td
 {
