@@ -105,6 +105,11 @@ svg
     left: 700px;
 }
 
+.switch-option input
+{
+    margin-right: 8px;
+}
+
 .switch-option:first-of-type
 {
     top: 100px;
