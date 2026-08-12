@@ -120,11 +120,42 @@ svg
     top: 130px;
 }
 
-#bobhoogste
+.bob-wrapper
 {
     position: absolute;
     left: 700px;
     top: 160px;
+    display: inline-flex;
+    align-items: center;
+}
+
+#bob
+{
+    width: 70px;
+}
+
+.bob-arrows
+{
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 2px;
+}
+
+.bob-arrows button
+{
+    width: 16px;
+    height: 11px;
+    line-height: 1;
+    font-size: 8px;
+    padding: 0;
+    border: 1px solid #999;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.bob-arrows button:hover
+{
+    background-color: #ddd;
 }
 
 #percentage

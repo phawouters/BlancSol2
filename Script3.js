@@ -27,4 +27,100 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // TweePutten.html: "bob" is a text input (so it can show a trailing sign)
+    // that behaves like a numeric stepper. It always displays 2 decimals with
+    // the sign shown AFTER the number, e.g. "3.56 -", "2.35 +", or plain "0.00"
+    // for exactly zero. Arrow Up/Down keys increment/decrement by data-step,
+    // clamped between data-min and data-max.
+    var bob = document.getElementById("bob");
+
+    if (bob) {
+        var min = parseFloat(bob.dataset.min);
+        var max = parseFloat(bob.dataset.max);
+        var step = parseFloat(bob.dataset.step);
+
+        var parseBobValue = function () {
+            var raw = bob.value.replace(",", ".");
+            var isNegative = raw.indexOf("-") !== -1;
+            var numeric = raw.replace(/[^0-9.]/g, "");
+            var value = parseFloat(numeric);
+
+            if (isNaN(value)) {
+                value = 0;
+            }
+
+            return isNegative ? -Math.abs(value) : value;
+        };
+
+        var formatBob = function (value) {
+            var clamped = Math.min(max, Math.max(min, value));
+            var rounded = parseFloat(clamped.toFixed(2));
+
+            if (rounded > 0) {
+                bob.value = rounded.toFixed(2) + " +";
+            } else if (rounded < 0) {
+                bob.value = Math.abs(rounded).toFixed(2) + " -";
+            } else {
+                bob.value = "0.00";
+            }
+
+            return rounded;
+        };
+
+        formatBob(parseBobValue());
+
+        bob.addEventListener("change", function () {
+            formatBob(parseBobValue());
+        });
+
+        bob.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+                event.preventDefault();
+                var current = parseBobValue();
+                var next = event.key === "ArrowUp" ? current + step : current - step;
+                formatBob(next);
+            }
+        });
+
+        // Custom spinner arrows (▲/▼), since a text input has no native ones.
+        // Clicking steps once; press-and-hold keeps repeating the step until released.
+        var bobUp = document.getElementById("bob-up");
+        var bobDown = document.getElementById("bob-down");
+        var holdInterval = null;
+        var holdTimeout = null;
+
+        var stopHolding = function () {
+            clearTimeout(holdTimeout);
+            clearInterval(holdInterval);
+            holdTimeout = null;
+            holdInterval = null;
+        };
+
+        var startHolding = function (direction) {
+            stopHolding();
+            formatBob(parseBobValue() + direction * step);
+
+            holdTimeout = setTimeout(function () {
+                holdInterval = setInterval(function () {
+                    formatBob(parseBobValue() + direction * step);
+                }, 80);
+            }, 400);
+        };
+
+        if (bobUp) {
+            bobUp.addEventListener("mousedown", function () {
+                startHolding(1);
+            });
+        }
+
+        if (bobDown) {
+            bobDown.addEventListener("mousedown", function () {
+                startHolding(-1);
+            });
+        }
+
+        document.addEventListener("mouseup", stopHolding);
+        document.addEventListener("mouseleave", stopHolding);
+    }
 });
