@@ -120,6 +120,13 @@ svg
     top: 130px;
 }
 
+#bobhoogste
+{
+    position: absolute;
+    left: 700px;
+    top: 160px;
+}
+
 #percentage
 {
     position: absolute;
