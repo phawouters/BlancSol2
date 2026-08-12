@@ -99,6 +99,22 @@ svg
     position: relative;
 }
 
+.switch-option
+{
+    position: absolute;
+    left: 700px;
+}
+
+.switch-option:first-of-type
+{
+    top: 100px;
+}
+
+.switch-option:last-of-type
+{
+    top: 130px;
+}
+
 #percentage
 {
     position: absolute;
