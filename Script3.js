@@ -33,9 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // the sign shown AFTER the number, e.g. "3.56 -", "2.35 +", or plain "0.00"
     // for exactly zero. Arrow Up/Down keys increment/decrement by data-step,
     // clamped between data-min and data-max.
-    var bob = document.getElementById("bob");
+    var setupBobStepper = function (inputId, upId, downId) {
+        var bob = document.getElementById(inputId);
 
-    if (bob) {
+        if (bob) {
         var min = parseFloat(bob.dataset.min);
         var max = parseFloat(bob.dataset.max);
         var step = parseFloat(bob.dataset.step);
@@ -85,8 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Custom spinner arrows (▲/▼), since a text input has no native ones.
         // Clicking steps once; press-and-hold keeps repeating the step until released.
-        var bobUp = document.getElementById("bob-up");
-        var bobDown = document.getElementById("bob-down");
+        var bobUp = document.getElementById(upId);
+        var bobDown = document.getElementById(downId);
         var holdInterval = null;
         var holdTimeout = null;
 
@@ -122,5 +123,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.addEventListener("mouseup", stopHolding);
         document.addEventListener("mouseleave", stopHolding);
-    }
+        }
+    };
+
+    setupBobStepper("bob", "bob-up", "bob-down");
+    setupBobStepper("bob2", "bob2-up", "bob2-down");
 });

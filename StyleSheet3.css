@@ -119,7 +119,7 @@ svg
     align-items: center;
 }
 
-#bob
+.bob-wrapper input
 {
     width: 70px;
 }
