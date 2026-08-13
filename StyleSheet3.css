@@ -227,7 +227,7 @@ svg
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    background-color: white;
+    background-color: #f0f0f0;
     padding: 0 4px;
 }
 
@@ -247,6 +247,7 @@ svg
 {
     font-family: "ISOCP", "ISO3098", monospace;
     font-size: 14px;
+    background-color: #f0f0f0;
 }
 
 .controls-wrapper
