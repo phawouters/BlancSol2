@@ -146,8 +146,96 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+    // TweePutten.html: whole-number stepper (no sign, no decimals). Always
+    // displays at least 2 digits, zero-padded (e.g. "00", "05", "150").
+    // Arrow Up/Down keys increment/decrement by data-step, clamped between
+    // data-min and data-max.
+    var setupCounterStepper = function (inputId, upId, downId) {
+        var counter = document.getElementById(inputId);
+
+        if (counter) {
+            var min = parseInt(counter.dataset.min, 10);
+            var max = parseInt(counter.dataset.max, 10);
+            var step = parseInt(counter.dataset.step, 10);
+
+            var parseCounterValue = function () {
+                var numeric = counter.value.replace(/[^0-9]/g, "");
+                var value = parseInt(numeric, 10);
+
+                if (isNaN(value)) {
+                    value = 0;
+                }
+
+                return value;
+            };
+
+            var formatCounter = function (value) {
+                var clamped = Math.min(max, Math.max(min, value));
+                counter.value = clamped.toString().padStart(2, "0");
+                return clamped;
+            };
+
+            formatCounter(parseCounterValue());
+
+            counter.addEventListener("change", function () {
+                formatCounter(parseCounterValue());
+            });
+
+            counter.addEventListener("keydown", function (event) {
+                if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+                    event.preventDefault();
+                    var current = parseCounterValue();
+                    var next = event.key === "ArrowUp" ? current + step : current - step;
+                    formatCounter(next);
+                }
+            });
+
+            // Custom spinner arrows (▲/▼), since a text input has no native ones.
+            // Clicking steps once; press-and-hold keeps repeating the step until released.
+            var counterUp = document.getElementById(upId);
+            var counterDown = document.getElementById(downId);
+            var holdInterval = null;
+            var holdTimeout = null;
+
+            var stopHolding = function () {
+                clearTimeout(holdTimeout);
+                clearInterval(holdInterval);
+                holdTimeout = null;
+                holdInterval = null;
+            };
+
+            var startHolding = function (direction) {
+                stopHolding();
+                formatCounter(parseCounterValue() + direction * step);
+
+                holdTimeout = setTimeout(function () {
+                    holdInterval = setInterval(function () {
+                        formatCounter(parseCounterValue() + direction * step);
+                    }, 80);
+                }, 400);
+            };
+
+            if (counterUp) {
+                counterUp.addEventListener("mousedown", function () {
+                    startHolding(1);
+                });
+            }
+
+            if (counterDown) {
+                counterDown.addEventListener("mousedown", function () {
+                    startHolding(-1);
+                });
+            }
+
+            document.addEventListener("mouseup", stopHolding);
+            document.addEventListener("mouseleave", stopHolding);
+        }
+    };
+
     setupBobStepper("bob", "bob-up", "bob-down");
     setupBobStepper("bob2", "bob2-up", "bob2-down");
     setupBobStepper("putdekselhoogte-put1", "putdekselhoogte-put1-up", "putdekselhoogte-put1-down");
     setupBobStepper("putdekselhoogte-put2", "putdekselhoogte-put2-up", "putdekselhoogte-put2-down");
+    setupCounterStepper("afstand-m", "afstand-m-up", "afstand-m-down");
+    setupCounterStepper("afstand-cm", "afstand-cm-up", "afstand-cm-down");
 });
