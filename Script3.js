@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 optie1.checked = true;
             }
+            updateBob2Position();
         });
 
         // Same logic in reverse for Optie 2.
@@ -25,8 +26,27 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 optie2.checked = true;
             }
+            updateBob2Position();
         });
     }
+
+    // TweePutten.html: the "bob2" wrapper moves horizontally depending on
+    // which of the mutually exclusive Optie 1 / Optie 2 checkboxes is checked.
+    var bob2Wrapper = document.getElementById("bob2-wrapper");
+
+    var updateBob2Position = function () {
+        if (!bob2Wrapper) {
+            return;
+        }
+
+        if (optie2 && optie2.checked) {
+            bob2Wrapper.style.left = "410px";
+        } else {
+            bob2Wrapper.style.left = "210px";
+        }
+    };
+
+    updateBob2Position();
 
     // TweePutten.html: "bob" is a text input (so it can show a trailing sign)
     // that behaves like a numeric stepper. It always displays 2 decimals with
