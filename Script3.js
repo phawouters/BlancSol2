@@ -148,4 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setupBobStepper("bob", "bob-up", "bob-down");
     setupBobStepper("bob2", "bob2-up", "bob2-down");
+    setupBobStepper("putdekselhoogte-put1", "putdekselhoogte-put1-up", "putdekselhoogte-put1-down");
+    setupBobStepper("putdekselhoogte-put2", "putdekselhoogte-put2-up", "putdekselhoogte-put2-down");
 });

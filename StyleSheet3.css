@@ -140,6 +140,12 @@ svg
     border: 0.5px solid black;
 }
 
+.put-label
+{
+    font-family: "ISOCP", "ISO3098", monospace;
+    font-size: 14px;
+}
+
 .bob-wrapper
 {
     display: inline-flex;
@@ -176,6 +182,42 @@ svg
 }
 
 .bob-arrows button:hover
+{
+    background-color: #ddd;
+}
+
+.mv-wrapper
+{
+    display: inline-flex;
+    align-items: center;
+}
+
+.mv-wrapper input
+{
+    width: 70px;
+    border: 0.5px solid black;
+}
+
+.mv-arrows
+{
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 2px;
+}
+
+.mv-arrows button
+{
+    width: 16px;
+    height: 11px;
+    line-height: 1;
+    font-size: 8px;
+    padding: 0;
+    border: 1px solid #999;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.mv-arrows button:hover
 {
     background-color: #ddd;
 }

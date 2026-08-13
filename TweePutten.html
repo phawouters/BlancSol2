@@ -50,71 +50,87 @@
             </g>
             <rect x="650" y="50" width="300" height="400" fill="none" stroke="black" stroke-width="0.1" />
         </svg>
-        <input type="text" id="putnummer-put1" name="putnummer-put1" class="put-textbox" style="position: absolute; left: 110px; top: 108px; width: 80px;">
-        <input type="text" id="putdekselhoogte-put1" name="putdekselhoogte-put1" class="put-textbox" style="position: absolute; left: 110px; top: 128px; width: 80px;">
-        <input type="text" id="putnummer-put2" name="putnummer-put2" class="put-textbox" style="position: absolute; left: 510px; top: 108px; width: 80px;">
-        <input type="text" id="putdekselhoogte-put2" name="putdekselhoogte-put2" class="put-textbox" style="position: absolute; left: 510px; top: 128px; width: 80px;">
-        <span id="bob2-wrapper" class="bob-wrapper" style="position: absolute; left: 210px; top: 283px;">
-            <input type="text" id="bob2" name="bob2" inputmode="decimal" data-min="-5" data-max="10" data-step="0.01" value="0.00" size="7">
-            <span class="bob-arrows">
-                <button type="button" id="bob2-up" aria-label="Verhogen">&#9650;</button>
-                <button type="button" id="bob2-down" aria-label="Verlagen">&#9660;</button>
+            <label for="putnummer-put1" class="put-label" style="position: absolute; left: 80px; top: 108px;">nr.</label>
+            <label for="putnummer-put1" class="put-label" style="position: absolute; left: 80px; top: 128px;">mv.</label>
+            <input type="text" id="putnummer-put1" name="putnummer-put1" class="put-textbox" style="position: absolute; left: 110px; top: 108px; width: 80px;">
+            <span id="putdekselhoogte-put1-wrapper" class="mv-wrapper" style="position: absolute; left: 110px; top: 128px;">
+                <input type="text" id="putdekselhoogte-put1" name="putdekselhoogte-put1" class="mv-input" inputmode="decimal" data-min="-5" data-max="10" data-step="0.01" value="0.00">
+                <span class="mv-arrows">
+                    <button type="button" id="putdekselhoogte-put1-up" aria-label="Verhogen">&#9650;</button>
+                    <button type="button" id="putdekselhoogte-put1-down" aria-label="Verlagen">&#9660;</button>
+                </span>
             </span>
-        </span>
-        <label id="optie1-label" class="switch-option"><input type="checkbox" id="optie1" name="optie1" checked>Vul in hoogste b.o.b.<span class="switch-option-hint">(Pas b.o.b. aan voor juiste dekking)</span></label>
-        <label id="optie2-label" class="switch-option"><input type="checkbox" id="optie2" name="optie2">Vul in laagste b.o.b.<span class="switch-option-hint">(Sluit aan op bestaande vaste hoogte)</span></label>
-        <div class="controls-wrapper">
-        <span class="bob-wrapper">
-            <input type="text" id="bob" name="bob" inputmode="decimal" data-min="-5" data-max="10" data-step="0.01" value="0.00">
-            <span class="bob-arrows">
-                <button type="button" id="bob-up" aria-label="Verhogen">&#9650;</button>
-                <button type="button" id="bob-down" aria-label="Verlagen">&#9660;</button>
+            <label for="putnummer-put2" class="put-label" style="position: absolute; left: 480px; top: 108px;">nr.</label>
+            <label for="putnummer-put2" class="put-label" style="position: absolute; left: 480px; top: 128px;">mv.</label>
+            <input type="text" id="putnummer-put2" name="putnummer-put2" class="put-textbox" style="position: absolute; left: 510px; top: 108px; width: 80px;">
+            <span id="putdekselhoogte-put2-wrapper" class="mv-wrapper" style="position: absolute; left: 510px; top: 128px;">
+                <input type="text" id="putdekselhoogte-put2" name="putdekselhoogte-put2" class="mv-input" inputmode="decimal" data-min="-5" data-max="10" data-step="0.01" value="0.00">
+                <span class="mv-arrows">
+                    <button type="button" id="putdekselhoogte-put2-up" aria-label="Verhogen">&#9650;</button>
+                    <button type="button" id="putdekselhoogte-put2-down" aria-label="Verlagen">&#9660;</button>
+                </span>
             </span>
-        </span>
-            <select name="percentage" id="percentage">
-                <option value="0.0">0,0</option>
-                <option value="0.5">0,5</option>
-                <option value="1.0">1,0</option>
-                <option value="1.5">1,5</option>
-                <option value="2.0">2,0</option>
-                <option value="2.5">2,5</option>
-                <option value="3.0">3,0</option>
-                <option value="3.33">3,33</option>
-                <option value="3.5">3,5</option>
-                <option value="4.0">4,0</option>
-            </select>
-            <select name="buizen" id="buizen">
-                <option value="0">PVC 110 3,4</option>
-                <option value="1">PVC 160 4,7</option>
-                <option value="2">PVC 200 5,9</option>
-                <option value="3">PVC 250 7,3</option>
-                <option value="4">PVC 315 9,2</option>
-                <option value="5">PVC 400 11,7</option>
-                <option value="6">PVC 500 14,6</option>
-                <option value="7">PVC 630 18,3</option>
-                <option value="8">Gres 150 25,0</option>
-                <option value="9">Gres 200 30,0</option>
-                <option value="10">Gres 250 35,0</option>
-                <option value="11">Gres 300 40,0</option>
-                <option value="12">Gres 400 40,0</option>
-                <option value="13">Beton 300 50,0</option>
-                <option value="14">Beton 400 60,0</option>
-                <option value="15">Beton 500 70,0</option>
-                <option value="16">Beton 600 80,0</option>
-                <option value="17">Beton 800 100,0</option>
-                <option value="18">Beton 1000 120,0</option>
-                <option value="19">Beton 1200 120,0</option>
-                <option value="20">HDPE 63 5,8</option>
-                <option value="21">HDPE 90 8,2</option>
-                <option value="22">HDPE 110 10,0</option>
-                <option value="23">HDPE 160 14,6</option>
-                <option value="24">HDPE 200 18,2</option>
-                <option value="25">PP 63 4,8</option>
-                <option value="26">PP 90 8,2</option>
-                <option value="27">PP 110 10,0</option>
-                <option value="28">PP 160 14,6</option>
-            </select>
-        </div>
+            <span id="bob2-wrapper" class="bob-wrapper" style="position: absolute; left: 210px; top: 283px;">
+                <input type="text" id="bob2" name="bob2" inputmode="decimal" data-min="-5" data-max="10" data-step="0.01" value="0.00" size="7">
+                <span class="bob-arrows">
+                    <button type="button" id="bob2-up" aria-label="Verhogen">&#9650;</button>
+                    <button type="button" id="bob2-down" aria-label="Verlagen">&#9660;</button>
+                </span>
+            </span>
+            <label id="optie1-label" class="switch-option"><input type="checkbox" id="optie1" name="optie1" checked>Vul in hoogste b.o.b.<span class="switch-option-hint">(Pas b.o.b. aan voor juiste dekking)</span></label>
+            <label id="optie2-label" class="switch-option"><input type="checkbox" id="optie2" name="optie2">Vul in laagste b.o.b.<span class="switch-option-hint">(Sluit aan op bestaande vaste hoogte)</span></label>
+            <div class="controls-wrapper">
+                <span class="bob-wrapper">
+                    <input type="text" id="bob" name="bob" inputmode="decimal" data-min="-5" data-max="10" data-step="0.01" value="0.00">
+                    <span class="bob-arrows">
+                        <button type="button" id="bob-up" aria-label="Verhogen">&#9650;</button>
+                        <button type="button" id="bob-down" aria-label="Verlagen">&#9660;</button>
+                    </span>
+                </span>
+                <select name="percentage" id="percentage">
+                    <option value="0.0">0,0</option>
+                    <option value="0.5">0,5</option>
+                    <option value="1.0">1,0</option>
+                    <option value="1.5">1,5</option>
+                    <option value="2.0">2,0</option>
+                    <option value="2.5">2,5</option>
+                    <option value="3.0">3,0</option>
+                    <option value="3.33">3,33</option>
+                    <option value="3.5">3,5</option>
+                    <option value="4.0">4,0</option>
+                </select>
+                <select name="buizen" id="buizen">
+                    <option value="0">PVC 110 3,4</option>
+                    <option value="1">PVC 160 4,7</option>
+                    <option value="2">PVC 200 5,9</option>
+                    <option value="3">PVC 250 7,3</option>
+                    <option value="4">PVC 315 9,2</option>
+                    <option value="5">PVC 400 11,7</option>
+                    <option value="6">PVC 500 14,6</option>
+                    <option value="7">PVC 630 18,3</option>
+                    <option value="8">Gres 150 25,0</option>
+                    <option value="9">Gres 200 30,0</option>
+                    <option value="10">Gres 250 35,0</option>
+                    <option value="11">Gres 300 40,0</option>
+                    <option value="12">Gres 400 40,0</option>
+                    <option value="13">Beton 300 50,0</option>
+                    <option value="14">Beton 400 60,0</option>
+                    <option value="15">Beton 500 70,0</option>
+                    <option value="16">Beton 600 80,0</option>
+                    <option value="17">Beton 800 100,0</option>
+                    <option value="18">Beton 1000 120,0</option>
+                    <option value="19">Beton 1200 120,0</option>
+                    <option value="20">HDPE 63 5,8</option>
+                    <option value="21">HDPE 90 8,2</option>
+                    <option value="22">HDPE 110 10,0</option>
+                    <option value="23">HDPE 160 14,6</option>
+                    <option value="24">HDPE 200 18,2</option>
+                    <option value="25">PP 63 4,8</option>
+                    <option value="26">PP 90 8,2</option>
+                    <option value="27">PP 110 10,0</option>
+                    <option value="28">PP 160 14,6</option>
+                </select>
+            </div>
         </div>
     </div>
     <script src="Script3.js"></script>
