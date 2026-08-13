@@ -124,6 +124,11 @@ svg
     width: 70px;
 }
 
+#bob2
+{
+    width: 7ch;
+}
+
 .bob-arrows
 {
     display: inline-flex;
