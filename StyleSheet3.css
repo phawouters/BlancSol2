@@ -113,6 +113,28 @@ svg
     top: 130px;
 }
 
+#optie1-label
+{
+    left: 656px;
+    top: 70px;
+}
+
+#optie2-label
+{
+    left: 656px;
+    top: 120px;
+}
+
+.switch-option-hint
+{
+    display: block;
+    margin-left: 20px;
+    font-size: 0.8em;
+    font-style: italic;
+    color: #666;
+    pointer-events: none;
+}
+
 .bob-wrapper
 {
     display: inline-flex;
@@ -156,8 +178,8 @@ svg
 .controls-wrapper
 {
     position: absolute;
-    left: 700px;
-    top: 160px;
+    left: 665px;
+    top: 200px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
